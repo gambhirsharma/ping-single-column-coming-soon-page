@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+    <base target="_blank" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="main">
+      <header class="header">
+        <picture class="header__logo">
+          <img src="./images/logo.svg" alt="Base Apparel Logo" />
+        </picture>
+      </header>
+      <picture class="main__imgwrapper">
+        <source
+          class="main__img"
+          media="(max-width: 1245px)"
+          srcset="./images/hero-mobile.jpg"
+        />
+        <source
+          class="main__img"
+          media="(min-width: 1246px)"
+          srcset="./images/hero-desktop.jpg"
+        />
+        <img src="./images/hero-mobile.jpg" alt="Base Apparel Hero Image" />
+      </picture>
+      <section class="section">
+        <h1 class="section__header">
+          We're <span class="section__special">coming soon</span>
+        </h1>
+        <div class="section__content">
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our
+          launch deals.
+        </div>
+        <form id="form" class="form" target="_self">
+          <label class="sr-only" for="email">Email Address</label>
+          <input
+            placeholder="Email Address"
+            id="email"
+            type="email"
+            class="form__input"
+            autocomplete="off"
+            required
+          />
+          <img
+            id="error-img"
+            class="form__error--img"
+            src="./images/icon-error.svg"
+            alt="Entered email is invalid"
+          />
+          <input
+            type="image"
+            alt="Submit Email"
+            name="submit"
+            src="./images/icon-arrow.svg"
+            class="form__submit"
+          />
+          <p id="error-msg" class="form__error--msg">
+            Please provide a valid email
+          </p>
+          <p id="success-msg" class="form__success--msg">
+            Thanks for adding your email. We will contact you once the fashion
+            store is up.
+          </p>
+        </form>
+      </section>
+    </main>
+    <footer class="attribution">
+      <p>
+        Challenge by
+        <a
+          href="https://www.frontendmentor.io/challenges/base-apparel-coming-soon-page-5d46b47f8db8a7063f9331a0"
+          rel="noopener noreferrer"
+          >Frontend Mentor</a
+        >.
+      </p>
+      <p>
+        Coded by <a href="https://twitter.com/gambhir_sharma" target="_blank">Gambhir Sharma</a>.
+      </p>
+    </footer>
+  </body>
+</html>

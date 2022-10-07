@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+
+/* variables */
+
+$prim-desat-red: hsl(0, 36%, 70%);
+$prim-soft-red: hsl(0, 93%, 68%);
+
+$neu-gray: hsl(0, 6%, 24%);
+$grad-header: 135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%);
+$grad-main: 135deg, #fefaf9, #fff3f3;
+$grad-button: 135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%);
+
+$font-size: 15px;
+$font-size-large: 20px;
+$font-family: "Josefin Sans", sans-serif;
+$font-light: 300;
+$font-medium: 400;
+$font-bold: 600;
+
+$main-bg: "../images/bg-pattern-desktop.svg";
+
+$success-text: hsl(140, 100%, 40%);
+$submit-active: hsl(359, 76%, 89%);
+
+$breakpoint: 1246px;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $font-size;
+  font-family: $font-family;
+  color: $prim-desat-red;
+  min-height: 100vh;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient($grad-main);
+}
+
+.main {
+  display: grid;
+  grid-template-rows: 88px auto 1fr;
+  .header {
+    background: linear-gradient($grad-header);
+    min-height: 55px;
+    padding: 2em 0 2em 2em;
+    &__logo {
+      img {
+        height: 20px;
+        width: 105px;
+      }
+    }
+  }
+  &__imgwrapper {
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  .section {
+    min-width: 200px;
+    padding: 4em 3.5em 2.5em 2em;
+    background: linear-gradient($grad-main);
+    text-align: center;
+    &__header {
+      font-size: 2.6rem;
+      text-transform: uppercase;
+      line-height: 0.8em;
+      letter-spacing: 0.25em;
+      font-weight: $font-light;
+      margin-bottom: 0.3em;
+    }
+    &__special {
+      display: block;
+      color: $neu-gray;
+      line-height: 1.2em;
+      font-weight: $font-bold;
+    }
+    &__content {
+      font-weight: $font-medium;
+      font-size: 0.9rem;
+      line-height: 1.5em;
+      margin: 0 auto 2.25em auto;
+      max-width: 400px;
+    }
+    .form {
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto;
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+      &__input {
+        font-size: 1rem;
+        display: inline-block;
+        padding: 1em 1.75em;
+        border-radius: 2em;
+        width: 100%;
+        outline: none;
+        border: 1px solid $prim-desat-red;
+        background: transparent;
+        font-family: inherit;
+        &::placeholder {
+          color: $prim-desat-red;
+        }
+        &:focus {
+          box-shadow: 3px 3px 19px 0 $prim-desat-red;
+        }
+      }
+      .error-border {
+        border: 2px solid $prim-soft-red;
+      }
+      &__submit {
+        position: absolute;
+        right: -5px;
+        top: 0;
+        width: 68px;
+        height: 50px;
+        background: linear-gradient($grad-button);
+        object-fit: none;
+        border-radius: 2em;
+        outline: none;
+        box-shadow: 3px 3px 19px 0 $prim-desat-red;
+        &:focus,
+        &:hover {
+          box-shadow: 5px 5px 25px 2px $prim-desat-red;
+          background: $submit-active;
+        }
+        &:active {
+          transition: all 100ms ease-out;
+          transform: scale(0.9);
+          right: -15px;
+        }
+      }
+      .show {
+        transition: all 0.5s ease-in-out;
+        opacity: 1;
+      }
+      &__error {
+        &--msg {
+          opacity: 0;
+          position: absolute;
+          font-size: 0.9rem;
+          bottom: -2rem;
+          color: $prim-soft-red;
+        }
+        &--img {
+          opacity: 0;
+          position: absolute;
+          font-size: 0.8rem;
+          right: 5rem;
+          top: 1.1em;
+          color: $prim-soft-red;
+        }
+      }
+      &__success {
+        &--msg {
+          opacity: 0;
+          position: absolute;
+          font-size: 0.8rem;
+          bottom: -3.5em;
+          color: $success-text;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+/* footer */
+
+.attribution {
+  font-size: 0.75rem;
+  line-height: 20px;
+  text-align: center;
+  color: $prim-desat-red;
+  margin-top: 1rem;
+  font-weight: $font-medium;
+  a {
+    text-decoration: none;
+    color: $neu-gray;
+    font-weight: $font-bold;
+    &:hover {
+      color: $prim-soft-red;
+    }
+  }
+}
+
+/* media queries */
+
+@media only screen and (min-width: $breakpoint) {
+  body {
+    font-size: $font-size-large;
+    max-width: 1600px;
+    justify-content: center;
+    min-width: 100%;
+  }
+  .main {
+    grid-template-areas:
+      "section image"
+      "section image";
+    grid-template-rows: 100px 1fr;
+    max-height: 800px;
+    min-height: 600px;
+    grid-template-columns: 1fr auto;
+    .header {
+      position: absolute;
+      grid-area: header;
+      max-height: 105px;
+      padding: 3.3em 0 0 8.2em;
+      background: none;
+      &__logo {
+        display: block;
+        width: 158px;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    &__imgwrapper {
+      grid-area: image;
+      max-height: 800px;
+      img {
+        max-height: 800px;
+        min-width: 610px;
+      }
+    }
+    .section {
+      grid-area: section;
+      background: url($main-bg);
+      max-height: 800px;
+      width: 100%;
+      padding: 29% 28% 19.5% 20%;
+      font-size: 2rem;
+      &__header {
+        font-size: 4rem;
+        text-align: left;
+      }
+      &__content {
+        font-size: 1rem;
+        margin: -0.2em 0 2.5em 0;
+        text-align: left;
+        line-height: 1.75em;
+        max-width: 500px;
+      }
+      .form {
+        width: 90%;
+        margin: 0;
+        &__input {
+          font-size: 1rem;
+        }
+        &__submit {
+          width: 100px;
+          right: -55px;
+          top: -5px;
+          height: 60px;
+          border-radius: 3em;
+          &:active {
+            right: -40px;
+          }
+        }
+        &__error {
+          &--img {
+            top: 1em;
+          }
+        }
+      }
+    }
+  }
+}
